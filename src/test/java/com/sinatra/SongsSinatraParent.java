@@ -52,21 +52,8 @@ public class SongsSinatraParent {
     public  void validateSongsPage(){
         WebElement songsTitle = driver.findElement(By.tagName("h1"));
         String currentUrl = driver.getCurrentUrl();
-        WebElement songsLink = driver.findElement(By.cssSelector("[href='/songs']"));
+        WebElement songsLink = driver.findElement(By.xpath("//a[@href=\"/songs\"]"));
         String currentClass = songsLink.getAttribute("class");
-        String s = "https://evening-bastion-49392.herokuapp.com/songs";
-       /* if (currentUrl == s)
-        {
-            System.out.println("User is in Songs Page");
-        }
-        else
-            {
-                System.out.println("User is not in Songs Page");
-            }*/
-        //WebElement listaCanciones = driver.findElements(By.cssSelector("#songs li"));
-
-        //if (songsTitle.isDisplayed () &&
-          //   currentUrl )
 
     }
     public  void validarHomePage() {
@@ -86,7 +73,7 @@ public class SongsSinatraParent {
 
     public  void validarMensajeBienvenida(String mensajeBienvenida) {
         WebElement welcomemsg = driver.findElement(By.cssSelector(".flash"));
-        WebElement logoutbtn = driver.findElement(By.partialLinkText("/logout"));
+        WebElement logoutbtn = driver.findElement(By.xpath("//a[@href=\"/logout\"]"));
 
       /*  if (welcomemsg.getText())
         {
