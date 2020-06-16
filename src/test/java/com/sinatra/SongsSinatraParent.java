@@ -1,4 +1,4 @@
-package SongbySinatra;
+package com.sinatra;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
