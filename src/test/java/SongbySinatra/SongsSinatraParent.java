@@ -4,23 +4,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.Test;
 
 import java.util.concurrent.TimeUnit;
 
 public class SongsSinatraParent {
 
-    public static WebDriver driver;
+    public  WebDriver driver;
 
-    public  static void navegar(String url) {
+    public   void navegar(String url) {
         System.setProperty("webdriver.chrome.driver", "C:\\libs\\chromedriver.exe");
-        driver = new ChromeDriver(); // Crea el driver tipo Chrome
+        driver = new ChromeDriver();   // Crea el driver tipo Chrome
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // Hace una espera implicita de 10 segundos que le da para que carge los elementos de la pagina.
-        driver.navigate().to(url); //Navega hacia el sitio de la url que recibe al momento en que
+        driver.navigate().to(url);  //Navega hacia el sitio de la url que recibe al momento en que
     }
 
-    public  static void realizarLoginCorrecto(String usuario, String password) {
+    public   void realizarLoginCorrecto(String usuario, String password) {
         WebElement loginLink = driver.findElement(By.xpath("//a[@href=\"/login\"]"));
         if (loginLink.isDisplayed()){
+
         loginLink.click();}
 
         WebElement usernametext = driver.findElement(By.id("username"));
@@ -47,27 +49,27 @@ public class SongsSinatraParent {
 //    loginBtn: value="Log In"
 
     }
-    public static void validateSongsPage(){
+    public  void validateSongsPage(){
         WebElement songsTitle = driver.findElement(By.tagName("h1"));
         String currentUrl = driver.getCurrentUrl();
         WebElement songsLink = driver.findElement(By.cssSelector("[href='/songs']"));
         String currentClass = songsLink.getAttribute("class");
         String s = "https://evening-bastion-49392.herokuapp.com/songs";
-        if (currentUrl == s)
+       /* if (currentUrl == s)
         {
             System.out.println("User is in Songs Page");
         }
         else
             {
                 System.out.println("User is not in Songs Page");
-            }
+            }*/
         //WebElement listaCanciones = driver.findElements(By.cssSelector("#songs li"));
 
         //if (songsTitle.isDisplayed () &&
           //   currentUrl )
 
     }
-    public static void validarHomePage() {
+    public  void validarHomePage() {
 
      WebElement imgHome = driver.findElement(By.tagName("h1"));
      if (imgHome.isDisplayed())
@@ -82,17 +84,18 @@ public class SongsSinatraParent {
     }
 
 
-    public static void validarMensajeBienvenida(String mensajeBienvenida) {
+    public  void validarMensajeBienvenida(String mensajeBienvenida) {
         WebElement welcomemsg = driver.findElement(By.cssSelector(".flash"));
         WebElement logoutbtn = driver.findElement(By.partialLinkText("/logout"));
-        if (welcomemsg.getText() == mensajeBienvenida)
+
+      /*  if (welcomemsg.getText())
         {
             System.out.println("Welcome message is correct");
-        }
+        }*/
 
     }
 
-    public static void cerrarBrowser() {
+    public  void cerrarBrowser() {
         driver.close();
     }
 }

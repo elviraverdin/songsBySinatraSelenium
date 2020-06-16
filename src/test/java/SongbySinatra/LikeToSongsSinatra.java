@@ -1,7 +1,11 @@
 package SongbySinatra;
 
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+
 public class LikeToSongsSinatra extends SongsSinatraParent{
-    public static void main (String []args)
+    @Test
+    public  void testLikeSong ()
     {
         navegar("https://evening-bastion-49392.herokuapp.com/");
         validarHomePage();
